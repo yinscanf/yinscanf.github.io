@@ -152,6 +152,363 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java常用类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ajava常用类"><a href="#ajava常用类" class="headerlink" title="ajava常用类"></a>ajava常用类</h2><h4 id="1、System"><a href="#1、System" class="headerlink" title="1、System"></a>1、System</h4><h5 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h5><p>  1、属于java.lang包<br>  2、不允许构建对象,本质是个单例模式<br>  3、对外部定义的属性和环境变量的访问；加载文件和库的方法；还有快速复制数组的一部分的实用方法。</p>
+<h5 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法:"></a>常用方法:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、static void	arraycopy(Object src, int srcPos, Object dest, int destPos, int length)</span><br></pre></td></tr></table></figure>
+
+<p>   数组复制<br>   参数:<br>   Object src     待复制的数组<br>   int srcPos     从哪个位置开始复制<br>   Object dest    复制之后存储数据的数组<br>   int destPos    从哪个位置开始存储<br>   int length     复制的长度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、static long	currentTimeMillis()</span><br></pre></td></tr></table></figure>
+
+<p>   返回以毫秒为单位的当前时间,参照1970年1月1日8点0分0秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、 static void	exit(int status)</span><br></pre></td></tr></table></figure>
+
+<p>   停止当前正在运行的 Java 虚拟机<br>   参数:<br>   int status   状态码    0代表立即停止</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4、 static void	gc()</span><br></pre></td></tr></table></figure>
+
+<p>   建议运行垃圾回收器<br>   注意:<br>   1)java的垃圾回收指的是堆内存数据的清理<br>   2)gc程序员无法把控</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5、 static String  getenv(String name)</span><br></pre></td></tr></table></figure>
+
+<p>   获取指定的环境变量值<br>   参数:<br>   String name   环境变量的名字<br>   返回值:<br>   String       具体的环境变量的值</p>
+<h4 id="2、date"><a href="#2、date" class="headerlink" title="2、date"></a>2、date</h4><h5 id="简介：-1"><a href="#简介：-1" class="headerlink" title="简介："></a>简介：</h5><p>属于java.util包<br>  表示当前基于系统环境和时区的标准时间,精确到毫秒<br>  毫秒距离格林尼治标准时间(1970年1月1日0时0分0秒)的毫秒数</p>
+<h5 id="date构造方法："><a href="#date构造方法：" class="headerlink" title="date构造方法："></a>date构造方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、Date()</span><br></pre></td></tr></table></figure>
+
+<p> 表示当前的系统时间,可以直接输出</p>
+<h5 id="date的常用方法"><a href="#date的常用方法" class="headerlink" title="date的常用方法"></a>date的常用方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、long  getTime()</span><br></pre></td></tr></table></figure>
+
+<p>​    返回距离格林尼治标准时间的毫秒数（和System类中的currentTimeMillis效果一样）</p>
+<h4 id="3、Calendar"><a href="#3、Calendar" class="headerlink" title="3、Calendar"></a>3、Calendar</h4><h5 id="简介：-2"><a href="#简介：-2" class="headerlink" title="简介："></a>简介：</h5><p>包java.util<br>表示当前时间的抽象类</p>
+<p>注：Calendar类虽然为抽象类，但可以作为上转型对象接收其子类对象</p>
+<h5 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、 static Calendar  getInstance()</span><br></pre></td></tr></table></figure>
+
+<p>获取当前类对象，使用默认时区和语言环境获得一个当前时间的对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、int	get(int field)</span><br></pre></td></tr></table></figure>
+
+<p>   返回当前时间对象指定的属性对应的值<br>   参数:<br>   int field    传入的属性(年/月/日/时/分/秒)<br>   返回值:<br>   int        具体的数值  </p>
+<p>   注意:<br>   1)月份从0开始,7代表8月份<br>   2)HOUR时分为AM和PM的,15点是3点PM,HOUR_OF_DAY是二十四时制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、void	set(int year, int month, int date)</span><br></pre></td></tr></table></figure>
+
+<p>   直接设置年月日</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4、void	set(int year, int month, int date, int hourOfDay, int minute)</span><br></pre></td></tr></table></figure>
+
+<p>   直接设置年月日时分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5、 Date  getTime()</span><br></pre></td></tr></table></figure>
+
+<p>​    获取当前Canlendar对象对应的Date对象</p>
+<h4 id="4、simpleDateFormat"><a href="#4、simpleDateFormat" class="headerlink" title="4、simpleDateFormat"></a>4、simpleDateFormat</h4><h5 id="简介：-3"><a href="#简介：-3" class="headerlink" title="简介："></a>简介：</h5><p>属于java.text包<br>  简单时间格式化类,是DateFormat的子类.<br>  用来格式化和解析日期,允许进行格式化（日期 -&gt; 文本）、解析（文本 -&gt; 日期）,文本是String,日期是Date</p>
+<h5 id="构造方法："><a href="#构造方法：" class="headerlink" title="构造方法："></a>构造方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、SimpleDateFormat(String pattern)</span><br></pre></td></tr></table></figure>
+
+<p>  使用给定的模式串来格式化日期或者解析文本<br>  参数:<br>  String pattern   模式串  </p>
+<p>  模式串按照一定的规则整合组织的特殊的字符串<br>      y   年        yy—&gt;  19    yyy —&gt;019   yyyy-&gt;2019<br>      M   月        MM —&gt; 08    M —&gt; 8<br>      d   日<br>      h/k 时<br>      m   分<br>      s   秒</p>
+<h5 id="SimpleDateFormat常用方法："><a href="#SimpleDateFormat常用方法：" class="headerlink" title="SimpleDateFormat常用方法："></a>SimpleDateFormat常用方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、 String  format(Date date)</span><br></pre></td></tr></table></figure>
+
+<p>   将一个 Date 对象按照模式串的格式格式化为一个时间字符串<br>   参数:<br>   Date date    待格式化的时间对象<br>   返回值:<br>   String     date对象对应的时间按照模式串转为的字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、Date   parse(String str)</span><br></pre></td></tr></table></figure>
+
+<p>   把参数中的字符串按照模式串的规则转为时间对象<br>   注意:<br>   显式的提供异常,需要在main上进行处理throws Exception<br>   参数:<br>   String str   符合模式串要求的时间字符串<br>   返回值:<br>   Date        转换生成的时间对象</p>
+<h4 id="5、Runtime"><a href="#5、Runtime" class="headerlink" title="5、Runtime"></a>5、Runtime</h4><h5 id="简介：-4"><a href="#简介：-4" class="headerlink" title="简介："></a>简介：</h5><p>  包java.lang<br>  每个 Java 程序都有一个 Runtime 类实例，构建和维护当前程序所在的环境.该类是对当前程序运行状态的抽象.</p>
+<p>  Runtime对象不允许程序员构建,而且是惟一的,是典型的单例模式</p>
+<h5 id="常用方法：-1"><a href="#常用方法：-1" class="headerlink" title="常用方法："></a>常用方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、static Runtime  getRuntime</span><br></pre></td></tr></table></figure>
+
+<p>  获取Runtime对象<br>  返回与当前 Java 应用程序相关的运行时对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、int	availableProcessors()</span><br></pre></td></tr></table></figure>
+
+<p>   返回当前处理器的核数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、 void	exit(int status)</span><br></pre></td></tr></table></figure>
+
+<p>   和System的exit方法完全一致</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4、 long	freeMemory()</span><br></pre></td></tr></table></figure>
+
+<p>   返回 Java 虚拟机中的空闲内存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5、long	maxMemory()</span><br></pre></td></tr></table></figure>
+
+<p>   返回 Java 虚拟机试图使用的最大内存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6、 long	totalMemory()</span><br></pre></td></tr></table></figure>
+
+<p>   返回 Java 虚拟机中的内存总量<br>   注意:以字节为单位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7、void	halt(int status)</span><br></pre></td></tr></table></figure>
+
+<p>   强制关闭java虚拟机,status一般设置为0</p>
+<h4 id="6、Integer"><a href="#6、Integer" class="headerlink" title="6、Integer"></a>6、Integer</h4><h5 id="简介：-5"><a href="#简介：-5" class="headerlink" title="简介："></a>简介：</h5><p> 是int类型的包装类,是Number的子类<br>  把int类型的基本数据类型作为当前类的一个属性<br>  本质:<br>  private final int value;</p>
+<h5 id="构造方法：-1"><a href="#构造方法：-1" class="headerlink" title="构造方法："></a>构造方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、   Integer(int value)</span><br></pre></td></tr></table></figure>
+
+<p>  构造一个新分配的 Integer 对象，它表示指定的 int 值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、   Integer(String s)</span><br></pre></td></tr></table></figure>
+
+<p>   允许把一个String字符串转为Integer类型.<br>   注意:<br>   该字符串必须是整数字符串,否则报错</p>
+<h5 id="常用方法：-2"><a href="#常用方法：-2" class="headerlink" title="常用方法："></a>常用方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、  int	intValue()</span><br></pre></td></tr></table></figure>
+
+<p>​    把当前的Integer对象转回基本数据类型int.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、    static int	parseInt(String s)</span><br></pre></td></tr></table></figure>
+
+<p>​    把整数字符串转为一个基本数据类型int</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、static Integer  valueOf(String s)</span><br></pre></td></tr></table></figure>
+
+<p>​    把整数字符串转为一个Integer类型</p>
+<h4 id="7、Math"><a href="#7、Math" class="headerlink" title="7、Math"></a>7、Math</h4><h5 id="简介：-6"><a href="#简介：-6" class="headerlink" title="简介："></a>简介：</h5><p> 数学类,包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数</p>
+<p>  构造方法被私有化了,提供很多static修饰的静态方法—-&gt;工具类</p>
+<h5 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、  static double  PI</span><br></pre></td></tr></table></figure>
+
+<p>   数学中的π值</p>
+<h5 id="常用方法：-3"><a href="#常用方法：-3" class="headerlink" title="常用方法："></a>常用方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、static int	abs(int a)</span><br></pre></td></tr></table></figure>
+
+<p>   返回 int 值的绝对值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、static double ceil(double a)</span><br></pre></td></tr></table></figure>
+
+<p>   获取大于a这个数的最小的整数,向上取整<br>   4.9  —&gt;  5<br>   1.00001  —-&gt;  2 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、static double  floor(double a)</span><br></pre></td></tr></table></figure>
+
+<p>   获取小于a这个数的最大的整数,向下取整<br>   4.1   —-&gt;   4<br>   5.9   —-&gt;   5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4、 static double pow(double a, double b)</span><br></pre></td></tr></table></figure>
+
+<p>   返回第一个参数的第二个参数次幂的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5、 static double  random()</span><br></pre></td></tr></table></figure>
+
+<p>   获取在[0,1)之间的随机数,该值大于等于 0.0 且小于 1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6、static int	round(float a)</span><br></pre></td></tr></table></figure>
+
+<p>   返回最接近参数的 int,四舍五入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7、 static double sqrt(double a)</span><br></pre></td></tr></table></figure>
+
+<p>   返回一个数字的平方根</p>
+<h4 id="8、UUID"><a href="#8、UUID" class="headerlink" title="8、UUID"></a>8、UUID</h4><h5 id="简介：-7"><a href="#简介：-7" class="headerlink" title="简介："></a>简介：</h5><p>十六进制的随机数的字符串,该字符串绝对不可能重复,当前系统内<br>唯一的随机数.</p>
+<h5 id="UUID的使用："><a href="#UUID的使用：" class="headerlink" title="UUID的使用："></a>UUID的使用：</h5><p>1、获取随机数的对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static UUID randomUUID()</span><br></pre></td></tr></table></figure>
+
+<p>  获取一个十六进制的随机数的对象</p>
+<p>  获取一个十六进制的随机数的对象</p>
+<p>2、把随机数对象以字符串的方式展现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String  toString()</span><br></pre></td></tr></table></figure>
+
+<p>   返回表示此 UUID 的 String 对象</p>
+<p>   返回表示此 UUID 的 String 对象</p>
+<h4 id="9、Random"><a href="#9、Random" class="headerlink" title="9、Random"></a>9、Random</h4><h5 id="简介：-8"><a href="#简介：-8" class="headerlink" title="简介："></a>简介：</h5><p>包java.util<br>  此类的对象用于生成伪随机数。此类使用 48 位的种子，使用函数生成的一组随机数.</p>
+<p>伪随机数<br>  基于种子生成的随机数都叫伪随机,根据种子数x+函数可以推测出y的值,如果两次随机的时候种子数相同,得到的随            机数可能是相同的</p>
+<p>种子<br>  seed,是一段存储特征的信息,包括番号,热度,帧点<br>  random的种子中有一个数字,是函数的一个解,是在初始化随机数对象的时候,由random<br>  根据线性同余方程自动生成</p>
+<h5 id="构造方法：-2"><a href="#构造方法：-2" class="headerlink" title="构造方法："></a>构造方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、 Random()</span><br></pre></td></tr></table></figure>
+
+<p>   创建一个新的随机数生成器,自动生成的种子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、Random(long seed)</span><br></pre></td></tr></table></figure>
+
+<p>   使用单个 long 种子创建一个新的随机数生成器,程序员提供的种子</p>
+<h5 id="常用方法：-4"><a href="#常用方法：-4" class="headerlink" title="常用方法："></a>常用方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、int	nextInt()</span><br></pre></td></tr></table></figure>
+
+<p>   返回下一个伪随机数，数值的范围在-2^31<del>~</del>2^31-1之间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、 int	nextInt(int n)</span><br></pre></td></tr></table></figure>
+
+<p>   返回一个伪随机数，数值的范围是[0,n),包含0不包含n</p>
+<h4 id="10、Arrays"><a href="#10、Arrays" class="headerlink" title="10、Arrays"></a>10、Arrays</h4><h5 id="简介：-9"><a href="#简介：-9" class="headerlink" title="简介："></a>简介：</h5><p>此类包含用来操作数组（比如排序和搜索）的各种方法,可以对数组进行加工处理<br>,是一个工具类</p>
+<h5 id="常用方法：-5"><a href="#常用方法：-5" class="headerlink" title="常用方法："></a>常用方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、 static int	binarySearch(int[] a, int fromIndex, int toIndex, int key)</span><br></pre></td></tr></table></figure>
+
+<p>   使用二分搜索法来搜索指定的 int 型数组的范围，以获得指定的值<br>   参数:<br>   int[] a         待遍历查找的数组<br>   int fromIndex   从哪个位置开始查找<br>   int toIndex     到哪个位置停止查找<br>   int key         待查找的元素<br>   返回值:<br>   int<br>   找到了指定的元素key,返回key的下标<br>   找不到指定的元素key,返回的-(low + 1)的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、 static void	sort(int[] a, int fromIndex, int toIndex)</span><br></pre></td></tr></table></figure>
+
+<p>   对指定 int 型数组的指定范围按数字升序进行排序<br>   参数:<br>   int[] a         待排序的数组<br>   int fromIndex   从哪个位置开始排序<br>   int toIndex     到哪个位置停止排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、static String  toString(int[] a)</span><br></pre></td></tr></table></figure>
+
+<p>   快速遍历数组的一种方式,把数组里面的元素直接输出</p>
+<h4 id="11、Throwable"><a href="#11、Throwable" class="headerlink" title="11、Throwable"></a>11、Throwable</h4><h5 id="简介：-10"><a href="#简介：-10" class="headerlink" title="简介："></a>简介：</h5><p>Throwable 类是 Java 语言中所有错误或异常的父类。<br>  有两个子类，Error 和 Exception.</p>
+<p>  Error  是 Throwable的子类,还是所有的错误类的父类<br>  Exception  是Throwable的子类,还是所有的异常类的父类</p>
+<h5 id="构造方法：-3"><a href="#构造方法：-3" class="headerlink" title="构造方法："></a>构造方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、Throwable()</span><br></pre></td></tr></table></figure>
+
+<p>   构造一个将 null 作为其详细消息的throwable对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、   Throwable(String message)</span><br></pre></td></tr></table></figure>
+
+<p>   构造带指定详细消息的throwable对象<br>   参数:<br>   String message   是遭遇异常的时候显示的异常的信息</p>
+<p>常用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、String getMessage()</span><br></pre></td></tr></table></figure>
+
+<p>   返回在构建异常对象的时候传入的String message的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、void	printStackTrace()</span><br></pre></td></tr></table></figure>
+
+<p>   以红色的err的输出方式,把遇到的错误和异常信息输出到console里面<br>   包含的不仅仅是异常或者是错误的信息,还包含更为详细的信息,具体<br>哪行代码有问题,甚至因为哪些问题引发的异常以及当前的异常引发的其他的一些<br>问题<br>   官方推荐使用这种方式查看异常信息</p>
+<h4 id="12、ArrayList"><a href="#12、ArrayList" class="headerlink" title="12、ArrayList"></a>12、ArrayList</h4><h5 id="简介：-11"><a href="#简介：-11" class="headerlink" title="简介："></a>简介：</h5><p>属于java.util包<br>底层基于Object类型的数组的实现,支持使用泛型自己指定的数据类型,提供了一些对于底层数据的访问的方法(增  删改查)</p>
+<p>   本质:<br>   存放具体数据的数组<br>   Object[] elementData;<br>   数组长度<br>   int size;</p>
+<h5 id="构造方法：-4"><a href="#构造方法：-4" class="headerlink" title="构造方法："></a>构造方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、ArrayList()</span><br></pre></td></tr></table></figure>
+
+<p>  在1.8版本之前,构造一个长度为 10 的空对象数组<br>  在1.8版本之后,构造一个长度为 0 的空对象数组,当第一个元素添加进去的时候,<br>默认的数组就会被替换.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、 ArrayList(int initialCapacity)</span><br></pre></td></tr></table></figure>
+
+<p>  构造一个具有指定初始容量的空对象数组</p>
+<h5 id="常用方法：-6"><a href="#常用方法：-6" class="headerlink" title="常用方法："></a>常用方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、 boolean  add(E e)</span><br></pre></td></tr></table></figure>
+
+<p>   将指定的元素添加到ArrayList的尾部</p>
+<blockquote>
+<p>注：<a href>第一个元素添加的时候的操作<br>​       使用空的构造方法构建的ArrayList是一个空的数组,第一个元素添加的时候<br>​       会触发自动扩容的算法,把指定的默认的长度10设置为当前的数组的长度</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、 void	add(int index, E element)</span><br></pre></td></tr></table></figure>
+
+<p>   将指定的元素插入ArrayList的指定位置<br>   int  index  必须&gt;=0<br>   注意:<br>   <a href>先保证ArrayList的容量不是0才可以添加元素,否则下标越界，即使在容量范围之内，下标也不可超过列表的实际长度</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、 void clear()</span><br></pre></td></tr></table></figure>
+
+<p>   移除此列表中的所有元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4、 E remove(int index)</span><br></pre></td></tr></table></figure>
+
+<p>   移除ArrayList中指定位置上的元素,并且把这个元素返回</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5、E  set(int index, E element)</span><br></pre></td></tr></table></figure>
+
+<p>   用指定的元素替代ArrayList中指定位置上的元素,并且把替换之前的元素返回</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6、 int	size()</span><br></pre></td></tr></table></figure>
+
+<p>​    返回此列表中的元素个数,就是size属性的get方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7、Object[]	toArray()</span><br></pre></td></tr></table></figure>
+
+<p>​    按从第一个到最后一个元素的顺序返回包含当前集合中所有元素的组成的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8、void  trimToSize()</span><br></pre></td></tr></table></figure>
+
+<p>​     将此 ArrayList的容量调整为数组中元素的个数<br>​     一般在集合稳定之后使用,节约空间</p>
+<h4 id="13、linkedList"><a href="#13、linkedList" class="headerlink" title="13、linkedList"></a>13、linkedList</h4><h5 id="简介：-12"><a href="#简介：-12" class="headerlink" title="简介："></a>简介：</h5><p>   属于java.util包<br>   基于链表结构的集合实现,大量的方法在功能上和ArrayList相同,代码的差异性很大<br>   是双向的链表结构,有prev指向上一个节点,有next指向下一个节点</p>
+<h5 id="构造方法：-5"><a href="#构造方法：-5" class="headerlink" title="构造方法："></a>构造方法：</h5><p>1、LinkedList()<br>   构造一个空链表结构</p>
+<h5 id="链表结构："><a href="#链表结构：" class="headerlink" title="链表结构："></a>链表结构：</h5><p> Node  节点<br> 链表是节点按照一定的顺序组合生成的一串数据,藤壶</p>
+<h5 id="节点源码："><a href="#节点源码：" class="headerlink" title="节点源码："></a>节点源码：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Node&lt;E&gt; &#123;</span><br><span class="line">        //存放具体数据的对象</span><br><span class="line">        E item;</span><br><span class="line">	//下一个节点的信息</span><br><span class="line">        Node&lt;E&gt; next;</span><br><span class="line">	//上一个节点的信息</span><br><span class="line">        Node&lt;E&gt; prev;</span><br></pre></td></tr></table></figure>
+
+<pre><code>    Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) {
+        this.item = element;
+        this.next = next;
+        this.prev = prev;
+    }
+}
+
+记录节点的个数:
+int size = 0;</code></pre><h5 id="常用方法：-7"><a href="#常用方法：-7" class="headerlink" title="常用方法："></a>常用方法：</h5><h6 id="添加链表节点"><a href="#添加链表节点" class="headerlink" title="添加链表节点"></a>添加链表节点</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、boolean add(E e)</span><br></pre></td></tr></table></figure>
+
+<p>   将指定元素添加到此列表的结尾。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、void	add(int index, E element)</span><br></pre></td></tr></table></figure>
+
+<p>   在此列表中指定的位置插入指定的元素。</p>
+<p>   在此列表中指定的位置插入指定的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、void addFirst(E e)</span><br></pre></td></tr></table></figure>
+
+<p>​    将指定元素插入此列表的开头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4、  void addLast(E e)</span><br></pre></td></tr></table></figure>
+
+<p>​    将指定元素添加到此列表的结尾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5、void clear()</span><br></pre></td></tr></table></figure>
+
+<p>​    从此列表中移除所有元素</p>
+<p>源码实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public void clear() &#123;</span><br><span class="line">       for (Node&lt;E&gt; x = first; x != null; ) &#123;</span><br><span class="line">           Node&lt;E&gt; next = x.next;</span><br><span class="line">           x.item = null;</span><br><span class="line">           x.next = null;</span><br><span class="line">           x.prev = null;</span><br><span class="line">           x = next;</span><br><span class="line">       &#125;</span><br><span class="line">       first = last = null;</span><br><span class="line">       size = 0;</span><br><span class="line">       modCount++;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="获取链表节点："><a href="#获取链表节点：" class="headerlink" title="获取链表节点："></a>获取链表节点：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6、 E	element() </span><br><span class="line">    E	getFirst()</span><br></pre></td></tr></table></figure>
+
+<p>​    获取此列表的第一个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7、 E	get(int index)</span><br></pre></td></tr></table></figure>
+
+<p>​    返回此列表中指定位置处的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8、 E	getLast()</span><br></pre></td></tr></table></figure>
+
+<p>​    返回此列表的最后一个元素</p>
+<h6 id="移除链表节点"><a href="#移除链表节点" class="headerlink" title="移除链表节点"></a>移除链表节点</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">9、E	remove() </span><br><span class="line">  E	removeFirst()</span><br></pre></td></tr></table></figure>
+
+<p>​     获取并移除此列表的第一个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10、E	remove(int index)</span><br></pre></td></tr></table></figure>
+
+<p>​     移除此列表中指定位置处的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11、 E	removeLast()</span><br></pre></td></tr></table></figure>
+
+<p>​     移除并返回此列表的最后一个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">12、E	set(int index, E element)</span><br></pre></td></tr></table></figure>
+
+<p>​     将此列表中指定位置的元素替换为指定的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13、  int	size()</span><br></pre></td></tr></table></figure>
+
+<p>   返回此列表的元素数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">14、 Object[]	toArray()</span><br></pre></td></tr></table></figure>
+
+<p>   返回从第一个元素到最后一个元素包含此列表中所有元素的数组</p>
+<p>重点：</p>
+<p><a href>LinkedList和ArrayList的区别<br>  1)查询  get(int i)    80%<br>  2)修改  set(int i,E e)<br>  3)删除  remove(int i)<br>​    删除最后一个元素    55开<br>​    删除第一个元素      ll 优势明显</a>   </p>
+<p>  <a href>4)添加  add(E e)<br>   在末尾添加元素<br>   al   可能需要扩容,性能下降<br>   ll   性能很不错</a></p>
+<p>   <a href>在头部添加元素<br>   al   可能需要扩容,所有的元素都要后移,性能下降<br>   ll   性能很不错</a></p>
+<p>  <a href>5)存储<br>  al   数组,占据一整块连续的存储空间<br>  ll   节点,散列在堆内存,内存利用率有所提升</a></p>
+<p>  <a href>6)安全性<br>  gc<br>  al  可能会被整体回收<br>  ll  数据安全性比较高</a></p>
+<h4 id="14、HashMap"><a href="#14、HashMap" class="headerlink" title="14、HashMap"></a>14、HashMap</h4><h5 id="简介：-13"><a href="#简介：-13" class="headerlink" title="简介："></a>简介：</h5><p>属于java.util包<br>  支持两个泛型,使用K和V表示,K是key的缩写,是键,V是value的缩写,是值<br>  HashMap称为键值对   </p>
+<p>  基于哈希表的 Map 接口的实现。并允许使用 null 值和 null 键。不保证映射的顺序，特别是它不保证该顺序恒久不变—- 如果存放数据的时候是AB,读取的时候可能是BA<br>  桶<br>  容器的概念,存放数据的容器,把存放数据的HashMap集合称为桶</p>
+<p>  初始容量<br>  容器起始的容积,起始存放的最大元素个数  </p>
+<p>  加载因子<br>  类似于容器扩容的比例,最优的加载因子是75%,也就是0.75  </p>
+<h5 id="构造方法：-6"><a href="#构造方法：-6" class="headerlink" title="构造方法："></a>构造方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、HashMap()</span><br></pre></td></tr></table></figure>
+
+<p>  构造一个具有默认初始容量 (16) 和默认加载因子 (0.75) 的空 HashMap</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、HashMap(int initialCapacity)</span><br></pre></td></tr></table></figure>
+
+<p>  构造一个带指定初始容量和默认加载因子 (0.75) 的空 HashMap</p>
+<p>注：<br>  <a href>1)V的类型任意,K的类型只允许是String类型或者Integer类型<br>  2)采用&lt;Integer,String&gt;设置多个泛型</a></p>
+<p>  <a href>源码:<br>  //当前集合的容积<br>  int threshold;<br>  //加载因子<br>  final float loadFactor;<br>  //node节点的个数<br>  int size;<br>  //存放节点的数组,HashMap的本质<br>  Node&lt;K,V&gt;[] table;</a></p>
+<h5 id="常用方法：-8"><a href="#常用方法：-8" class="headerlink" title="常用方法："></a>常用方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、 V  put(K key, V value)</span><br></pre></td></tr></table></figure>
+
+<p>   把指定的键值对添加/修改到当前集合<br>   注意:<br>   <a href>1)如果之前没有这个key,添加到集合;如果之前有key,修改集合里面的值<br>   2)key是惟一的,value允许重复</a></p>
+<p>源码实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;</span><br><span class="line">      final int hash;</span><br><span class="line">      final K key;</span><br><span class="line">      V value;</span><br><span class="line">     Node&lt;K,V&gt; next;</span><br><span class="line">      Node(int hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">       this.hash = hash;</span><br><span class="line">       this.key = key;</span><br><span class="line">       this.value = value;</span><br><span class="line">       this.next = next;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、 void	clear()</span><br></pre></td></tr></table></figure>
+
+<p>   从此映射中移除所有映射关系</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、 boolean  containsKey(Object key)</span><br></pre></td></tr></table></figure>
+
+<p>   如果此映射包含对于指定键的映射关系，则返回 true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4、boolean containsValue(Object value)</span><br></pre></td></tr></table></figure>
+
+<p>   如果此映射将一个或多个键映射到指定值，则返回 true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5、 V	get(Object key)</span><br></pre></td></tr></table></figure>
+
+<p>​    返回指定键所映射的值；如果没有这个key,则返回 null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6、boolean  isEmpty()</span><br></pre></td></tr></table></figure>
+
+<p>   如果此映射不包含键-值映射关系，则返回 true</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7、V remove(Object key)</span><br></pre></td></tr></table></figure>
+
+<p>   从此映射中移除指定键的映射关系<br>   移除的时候,把KV对一起移除掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8、 int	size()</span><br></pre></td></tr></table></figure>
+
+<p>   返回此映射中的键-值映射关系数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9、 Collection&lt;V&gt;  values()</span><br></pre></td></tr></table></figure>
+
+<p>   返回此映射所包含的值的 Collection 视图<br>   Map全系没有迭代器iterator,无法使用迭代器遍历,Collection全系有迭代器,<br>   所有的key丢失,只有value的集合</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/18/java常用类/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
